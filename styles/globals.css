@@ -22,7 +22,7 @@
   --color-chart-2: var(--chart-2);
   --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
-  --color-input: var(--input);
+  --color-input: var(--input);  
   --color-border: var(--border);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
@@ -41,10 +41,13 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-inter);
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -118,5 +121,54 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+
+::-moz-selection {
+  color: var(--background);
+  background: var(--foreground);
+}
+
+::selection {
+  color: var(--background);
+  background: var(--foreground);
+}
+
+/* tailwind styles */
+.head-text-lg {
+  @apply text-3xl md:text-5xl lg:text-6xl font-bold font-heading tracking-tight leading-[1.5];
+}
+
+.head-text-md {
+  @apply text-2xl md:text-4xl lg:text-5xl font-bold font-heading tracking-tight leading-[1.5];
+}
+
+.head-text-sm {
+  @apply text-lg md:text-xl lg:text-2xl font-bold font-heading tracking-tight leading-[1.5];
+}
+
+/* view transition */
+::view-transition-group(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: var(--expo-in);
+}
+
+::view-transition-new(root) {
+  animation-name: reveal;
+}
+
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}
+
+@keyframes reveal {
+  from {
+    clip-path: polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%);
+  }
+  to {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 }
