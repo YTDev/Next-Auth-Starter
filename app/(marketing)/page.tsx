@@ -21,21 +21,11 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
-// import { useSession } from "@/lib/auth-client";
+import { useAuth } from "@/lib/auth-hooks";
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
-  // const { data: session, isPending } = useSession();
-
-  // Mock data for layout preview
-  const isPending = false;
-  const session = {
-    user: {
-      name: "John Doe",
-      email: "john@example.com",
-      image: "",
-    },
-  };
+  const { session, isLoading } = useAuth();
 
   const handleCopy = () => {
     navigator.clipboard.writeText(`git clone ${siteConfig.socials.github}`);
@@ -69,8 +59,8 @@ export default function Home() {
                   {siteConfig.origin.replace("https://", "")}
                 </Link>
               </div>
-              {!isPending &&
-                (session ? (
+              {!isLoading &&
+                (session?.user ? (
                   <Button
                     className="h-full border-dashed"
                     size="lg"

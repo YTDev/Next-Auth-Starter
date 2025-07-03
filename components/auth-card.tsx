@@ -10,22 +10,11 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { useState } from "react";
-// import { signIn } from "@/lib/auth-client";
+import { signIn } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
-
-// Mock signIn function for layout preview
-const signIn = {
-  social: async (config: any, options: any) => {
-    console.log("Mock signIn called with:", config, options);
-    // Mock implementation for layout preview
-    if (options?.onRequest) {
-      options.onRequest({} as any);
-    }
-  },
-};
 
 export default function AuthCard({
   title,

@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-// import { useSession, signOut } from "@/lib/auth-client"
+import { useAuth } from "@/lib/auth-hooks";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { siteConfig } from "@/config/site.config";
@@ -20,26 +20,10 @@ import { cn } from "@/lib/utils";
 
 export function UserProfile({ className }: { className?: string }) {
   const [signingOut, setSigningOut] = useState(false);
-  // const { data: session, isPending } = useSession();
+  const { session, isLoading, logout } = useAuth();
   const router = useRouter();
 
-  // Mock data for layout preview
-  const isPending = false;
-  const session = {
-    user: {
-      name: "John Doe",
-      email: "john@example.com",
-      image: "",
-    },
-  };
-
-  // Mock signOut function
-  const signOut = (options: any) => {
-    console.log("Sign out clicked", options);
-    // Mock implementation for layout preview
-  };
-
-  if (isPending) {
+  if (isLoading) {
     return (
       <div className="size-10 md:size-14 aspect-square flex items-center justify-center p-3">
         <div className="size-4 md:size-8 rounded-full bg-muted/50 animate-pulse"></div>
@@ -47,7 +31,7 @@ export function UserProfile({ className }: { className?: string }) {
     );
   }
 
-  if (!session) {
+  if (!session?.user) {
     return null;
   }
 
@@ -126,26 +110,19 @@ export function UserProfile({ className }: { className?: string }) {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="cursor-pointer w-full flex items-center justify-between gap-2"
-          onClick={() =>
-            signOut({
-              fetchOptions: {
-                onRequest: () => {
-                  setSigningOut(true);
-                  toast.loading("Signing out...");
-                },
-                onSuccess: () => {
-                  setSigningOut(false);
-                  toast.success("Signed out successfully");
-                  toast.dismiss();
-                  router.push("/");
-                },
-                onError: () => {
-                  setSigningOut(false);
-                  toast.error("Failed to sign out");
-                },
-              },
-            })
-          }
+          onClick={async () => {
+            setSigningOut(true);
+            toast.loading("Signing out...");
+            try {
+              await logout();
+              toast.success("Signed out successfully");
+              toast.dismiss();
+            } catch (error) {
+              toast.error("Failed to sign out");
+            } finally {
+              setSigningOut(false);
+            }
+          }}
         >
           <span>Sign Out</span>
           <LogOutIcon className="size-4" />
