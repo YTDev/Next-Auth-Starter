@@ -1,7 +1,7 @@
 import { SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
-  name: "Authix",
+  name: "Authx",
   title:
     "Authix – Full-Stack Next.js 15 Template with Auth.js, Prisma ORM, PostgreSQL, and Shadcn UI",
   description:
@@ -18,8 +18,8 @@ export const siteConfig: SiteConfig = {
     "TypeScript",
     "Full-Stack Template",
   ],
-  // og: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/og.png`,
-  og: "https://dummyimage.com/1200x630/0f172a/ffffff.png&text=Authix+OG+Image",
+  og: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/og.png`,
+  // og: "https://dummyimage.com/1200x630/0f172a/ffffff.png&text=Authix+OG+Image",
 
   creator: {
     name: "YTDev",
