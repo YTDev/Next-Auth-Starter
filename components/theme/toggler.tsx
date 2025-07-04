@@ -7,23 +7,18 @@ import { cn } from "@/lib/utils";
 
 type ThemeTogglerProps = {
   className?: string;
-}
+};
 
 export default function ThemeToggler({ className }: ThemeTogglerProps) {
   const { resolvedTheme, setTheme } = useTheme();
 
   const switchTheme = () => {
-    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
   const toggleTheme = () => {
-    //@ts-ignore
-    if (!document.startViewTransition) switchTheme();
-
-    //@ts-ignore
-    document.startViewTransition(switchTheme);
+    switchTheme();
   };
-
 
   return (
     <Button

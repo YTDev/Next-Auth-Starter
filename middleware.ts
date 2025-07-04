@@ -1,4 +1,11 @@
-export { auth as middleware } from "@/auth";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+export function middleware(request: NextRequest) {
+  // For now, just pass through all requests
+  // Authentication will be handled by the ProtectedRoute component
+  return NextResponse.next();
+}
 
 export const config = {
   matcher: [

@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuth } from "@/lib/auth-hooks";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { siteConfig } from "@/config/site.config";
 import { toast } from "sonner";
@@ -21,7 +20,6 @@ import { cn } from "@/lib/utils";
 export function UserProfile({ className }: { className?: string }) {
   const [signingOut, setSigningOut] = useState(false);
   const { session, isLoading, logout } = useAuth();
-  const router = useRouter();
 
   if (isLoading) {
     return (
@@ -117,7 +115,7 @@ export function UserProfile({ className }: { className?: string }) {
               await logout();
               toast.success("Signed out successfully");
               toast.dismiss();
-            } catch (error) {
+            } catch {
               toast.error("Failed to sign out");
             } finally {
               setSigningOut(false);

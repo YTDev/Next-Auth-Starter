@@ -5,7 +5,7 @@ import { signIn as nextAuthSignIn } from "next-auth/react";
 export const signIn = {
   social: async (
     config: { provider: string; callbackURL: string },
-    options?: { onRequest?: (ctx: any) => void }
+    options?: { onRequest?: (ctx: unknown) => void }
   ) => {
     if (options?.onRequest) {
       options.onRequest({});
