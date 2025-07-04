@@ -3,7 +3,7 @@ import { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
   name: "Authx",
   title:
-    "Authix – Full-Stack Next.js 15 Template with Auth.js, Prisma ORM, PostgreSQL, and Shadcn UI",
+    "Authx – Full-Stack Next.js 15 Template with Auth.js, Prisma ORM, PostgreSQL, and Shadcn UI",
   description:
     "Modern full-stack template for Next.js 15 featuring Auth.js (NextAuth), Prisma ORM, PostgreSQL, Shadcn UI, and Tailwind CSS v4 for building secure and scalable web apps.",
   origin: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
