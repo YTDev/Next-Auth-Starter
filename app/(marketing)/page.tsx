@@ -195,15 +195,15 @@ export default function Home() {
                   <span className="group-hover/item:animate-pulse">
                     {tech.icon}
                   </span>
-                  <h3 className="text-zinc-500 dark:text-zinc-400 text-base font-semibold">
+                  <span className="text-zinc-500 dark:text-zinc-400 text-base font-semibold">
                     {tech.category}
-                  </h3>
+                  </span>
                 </div>
                 <ArrowRight className="size-4 opacity-0 scale-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:-translate-x-0 group-hover/item:scale-100 transition-all duration-150" />
               </div>
-              <h1 className="text-xl font-semibold font-heading tracking-tight mb-2">
+              <h2 className="text-xl font-semibold font-heading tracking-tight mb-2">
                 {tech.name}
-              </h1>
+              </h2>
               <p className="text-sm text-muted-foreground ">
                 {tech.description}
               </p>
