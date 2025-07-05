@@ -46,7 +46,7 @@ A modern, production-ready Next.js 15 template with **Auth.js (NextAuth.js v5)**
 ### 1. Clone and Install
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/YTDev/Next-Auth-Starter.git
 cd next-auth-starter
 npm install
 ```
