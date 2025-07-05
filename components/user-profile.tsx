@@ -43,6 +43,9 @@ export function UserProfile({ className }: { className?: string }) {
             signingOut && "animate-pulse",
             className
           )}
+          aria-label={`User menu for ${
+            session.user.name || session.user.email
+          }`}
           asChild
         >
           <Avatar>

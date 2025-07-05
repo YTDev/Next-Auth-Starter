@@ -116,6 +116,9 @@ export default function Home() {
                   size="icon"
                   className="size-5 cursor-pointer group/copy"
                   onClick={handleCopy}
+                  aria-label={
+                    copied ? "Copied to clipboard" : "Copy git clone command"
+                  }
                 >
                   {copied ? (
                     <Check className="size-3" />
