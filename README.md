@@ -20,6 +20,15 @@ A modern, production-ready Next.js 15 template with **Auth.js (NextAuth.js v5)**
 - 🛡️ **Type Safety** - Full TypeScript support
 - 🚀 **Production Ready** - Optimized for Vercel deployment
 
+### 🎯 Lighthouse Scores
+
+| Category           | Score   |
+| ------------------ | ------- |
+| **Performance**    | 100/100 |
+| **Accessibility**  | 100/100 |
+| **Best Practices** | 100/100 |
+| **SEO**            | 100/100 |
+
 ## 🏗️ Architecture
 
 ```
