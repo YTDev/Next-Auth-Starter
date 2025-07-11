@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 export default function AuthCard({
   title,
@@ -28,6 +29,9 @@ export default function AuthCard({
   const [githubLoading, setGithubLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
   const [discordLoading, setDiscordLoading] = useState(false);
+
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
   return (
     <Card className="max-w-md w-full rounded-none border-dashed">
@@ -50,7 +54,7 @@ export default function AuthCard({
               provider="github"
               loading={githubLoading}
               setLoading={setGithubLoading}
-              callbackURL="/dashboard"
+              callbackURL={callbackUrl}
               icon={<Icons.Github />}
             />
             <SignInButton
@@ -58,7 +62,7 @@ export default function AuthCard({
               provider="google"
               loading={googleLoading}
               setLoading={setGoogleLoading}
-              callbackURL="/dashboard"
+              callbackURL={callbackUrl}
               icon={<Icons.Google />}
             />
             <SignInButton
@@ -66,7 +70,7 @@ export default function AuthCard({
               provider="discord"
               loading={discordLoading}
               setLoading={setDiscordLoading}
-              callbackURL="/dashboard"
+              callbackURL={callbackUrl}
               icon={<Icons.Discord />}
             />
           </div>
