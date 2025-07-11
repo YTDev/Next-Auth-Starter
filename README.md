@@ -19,6 +19,12 @@ A modern, production-ready Next.js 15 template with **Auth.js (NextAuth.js v5)**
 - ⚡ **Performance** - Next.js 15 with Turbopack
 - 🛡️ **Type Safety** - Full TypeScript support
 - 🚀 **Production Ready** - Optimized for Vercel deployment
+  
+## ⚡ Performance
+
+This template is built with performance in mind, achieving excellent Lighthouse scores:
+
+![Lighthouse Performance](https://github.com/YTDev/Next-Auth-Starter/blob/f0fc5a77e4186ff70a37fb5dcfb27ef4ffb4dcb6/screenshot.png)
 
 ### 🎯 Lighthouse Scores
 
