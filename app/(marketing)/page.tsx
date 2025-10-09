@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <div className="w-full h-auto md:h-screen overflow-y-auto md:overflow-hidden flex flex-col items-center justify-center">
-      <div className="w-full max-w-7xl mx-auto border border-dashed flex flex-col my-2">
+      <div className="w-full max-w-7xl mx-auto border border-dashed flex flex-col my-2 pt-4">
         <div className="w-full flex justify-between divide-x">
           <div className="relative hidden md:flex w-1/3 aspect-square bg-black text-slate-100 items-center justify-center group/Authix border-dashed hover:text-yellow-100 transition-colors duration-300">
             <Vegeta />
